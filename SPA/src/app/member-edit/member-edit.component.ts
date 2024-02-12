@@ -4,6 +4,7 @@ import { IUser } from '../_models/iuser';
 import { AccountService } from '../_services/account.service';
 import { MembersService } from '../_services/members.service';
 import { take } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-member-edit',
@@ -16,7 +17,8 @@ export class MemberEditComponent implements OnInit {
 
   constructor(
     private accountsService: AccountService,
-    private membersService: MembersService
+    private membersService: MembersService,
+    private toastr: ToastrService,
   ) {
     this.accountsService.currentUser$.pipe(take(1)).subscribe({
       next: (user) => (this.user = user),
@@ -35,5 +37,10 @@ export class MemberEditComponent implements OnInit {
         this.member = member;
       },
     });
+  }
+
+  updateMember() {
+    console.log(this.member);
+    this.toastr.success("Se ha editado")
   }
 }
