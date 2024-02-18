@@ -3,9 +3,9 @@
     <h1>Tu perfil</h1>
   </div>
   <div class="col-8">
-    <div class="alert alert-info" *ngIf="editForm.dirty">
+    <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
       <p>
-        <strong>IMPORTANTE:</strong>Has realizado cambios. Cualquier cambio que
+        <strong>IMPORTANTE: </strong>Has realizado cambios. Cualquier cambio que
         no se salve se perderá.
       </p>
     </div>
@@ -39,8 +39,8 @@
         <button
           type="submit"
           form="editForm"
-          class="btn btn-success col-12"
           [disabled]="!editForm.dirty"
+          class="btn btn-success col-12"
         >
           Guardar
         </button>
