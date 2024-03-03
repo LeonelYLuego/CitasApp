@@ -9,10 +9,10 @@ export const authGuard: CanActivateFn = (route, state) => {
   const toastr = inject(ToastrService);
 
   return accountService.currentUser$.pipe(
-    map(user => {
+    map((user) => {
       if (user) return true;
       else {
-        toastr.error("Debes ingresar al sistema");
+        toastr.error('Debes ingresar al sistema');
         return false;
       }
     })

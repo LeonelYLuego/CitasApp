@@ -22,7 +22,7 @@ public static class IdentityServiceExtensions
                     ValidateAudience = false
                 };
             });
-        
+
         return services;
     }
 }

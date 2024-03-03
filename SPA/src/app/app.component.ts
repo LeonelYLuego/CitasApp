@@ -5,7 +5,7 @@ import { IUser } from './_models/iuser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   title = 'Citas App';
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   }
 
   setCurrentUser(): void {
-    const userString = localStorage.getItem("user");
+    const userString = localStorage.getItem('user');
     if (!userString) return;
     const user: IUser = JSON.parse(userString);
     this.accountService.setCurrentUser(user);
