@@ -5,7 +5,38 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        ".editorconfig": true,
+        "CitasApp.sln": true,
+        ".vs": true,
+        ".github/workflows": true,
+        ".github": true,
+        ".vscode": true,
+        "API/bin": true,
+        "API/obj": true,
+        "SPA/.angular": true,
+        "SPA/.vscode": true,
+        "SPA/node_modules": true,
+        "SPA/.editorconfig": true,
+        "SPA/package-lock.json": true,
+        "SPA/tsconfig.app.json": true,
+        "SPA/tsconfig.spec.json": true
     },
-    "hide-files.files": []
+    "hide-files.files": [
+        ".editorconfig",
+        "CitasApp.sln",
+        ".vs",
+        ".github/workflows",
+        ".github",
+        ".vscode",
+        "API/bin",
+        "API/obj",
+        "SPA/.angular",
+        "SPA/.vscode",
+        "SPA/node_modules",
+        "SPA/.editorconfig",
+        "SPA/package-lock.json",
+        "SPA/tsconfig.app.json",
+        "SPA/tsconfig.spec.json"
+    ]
 }
