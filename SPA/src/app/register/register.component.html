@@ -4,26 +4,69 @@
   <div class="mb-3">
     <input
       type="text"
+      [class.is-invalid]="
+        registerForm.get('username')?.errors &&
+        registerForm.get('username')?.touched
+      "
       class="form-control"
-      placeholder="Username"
+      placeholder="Nombre de usuario"
       formControlName="username"
     />
+    <div class="invalid-feedback">Debes ingresar tu nombre de usuario</div>
   </div>
   <div class="mb-3">
     <input
       type="password"
+      [class.is-invalid]="
+        registerForm.get('password')?.errors &&
+        registerForm.get('password')?.touched
+      "
       class="form-control"
-      placeholder="Password"
+      placeholder="Contraseña"
       formControlName="password"
     />
+    <div
+      class="invalid-feedback"
+      *ngIf="registerForm.get('password')?.hasError('required')"
+    >
+      Debes ingresar tu contraseña
+    </div>
+    <div
+      class="invalid-feedback"
+      *ngIf="registerForm.get('password')?.hasError('minlength')"
+    >
+      Debes ingresar una contraseña mayor a 4 caracteres
+    </div>
+    <div
+      class="invalid-feedback"
+      *ngIf="registerForm.get('password')?.hasError('maxlength')"
+    >
+      Debes ingresar una contraseña menor a 8 caracteres
+    </div>
   </div>
   <div class="mb-3">
     <input
       type="password"
+      [class.is-invalid]="
+        registerForm.get('confirmPassword')?.errors &&
+        registerForm.get('confirmPassword')?.touched
+      "
       class="form-control"
-      placeholder="Confirm Password"
+      placeholder="Confirmar contraseña"
       formControlName="confirmPassword"
     />
+    <div
+      class="invalid-feedback"
+      *ngIf="registerForm.get('confirmPassword')?.hasError('required')"
+    >
+      Debes ingresar tu confirmación de contraseña
+    </div>
+    <div
+      class="invalid-feedback"
+      *ngIf="registerForm.get('confirmPassword')?.hasError('notMatching')"
+    >
+      Ambas contraseñas deben ser iguales
+    </div>
   </div>
   <div class="text-center">
     <button class="btn btn-success me-2" type="submit">Registrarme</button>
