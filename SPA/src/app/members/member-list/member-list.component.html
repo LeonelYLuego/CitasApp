@@ -48,6 +48,41 @@
     <button (click)="resetFilters()" class="btn btn-primary ms-1" type="submit">
       Reiniciar
     </button>
+
+    <div class="col">
+      <div class="btn-group float-end">
+        <button
+          type="button"
+          class="btn btn-primary"
+          name="orderBy"
+          [(ngModel)]="userParams.orderBy"
+          btnRadio="lastActive"
+          (click)="loadMembers()"
+        >
+          Actividad
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          name="orderBy"
+          [(ngModel)]="userParams.orderBy"
+          btnRadio="created"
+          (click)="loadMembers()"
+        >
+          Registro
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          name="orderBy"
+          [(ngModel)]="userParams.orderBy"
+          btnRadio="dob"
+          (click)="loadMembers()"
+        >
+          Edad
+        </button>
+      </div>
+    </div>
   </form>
 </div>
 

@@ -19,8 +19,8 @@ export class MemberListComponent implements OnInit {
   userParams: UserParams | undefined;
   user: User | undefined;
   genderList = [
-    { value: 'female', display: 'Females' },
-    { value: 'male', display: 'Males' },
+    { value: 'female', display: 'Mujeres' },
+    { value: 'male', display: 'Hombres' },
   ];
 
   constructor(
