@@ -31,7 +31,7 @@ try
     await context.Database.MigrateAsync();
     await Seed.SeedUsers(context);
 }
-catch(Exception ex)
+catch (Exception ex)
 {
     var logger = services.GetService<ILogger<Program>>();
     logger.LogError(ex, "Ha ocurrido un error durante el sembrado");
