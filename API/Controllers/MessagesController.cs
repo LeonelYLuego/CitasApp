@@ -55,7 +55,6 @@ public class MessagesController : BaseApiController
         return BadRequest("Ocurrió un error al enviar el mensaje");
     }
 
-
     [HttpGet]
     public async Task<ActionResult<PagedList<MessageDto>>> GetMessagesForUser
         ([FromQuery] MessageParams mp)
@@ -72,5 +71,13 @@ public class MessagesController : BaseApiController
         ));
 
         return messages;
+    }
+
+    [HttpGet("thread/{username}")]
+    public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessageThread(string username)
+    {
+        var currentUsername = User.GetUsername();
+
+        return Ok(await _messageRepository.GetMessageThreadAsync(currentUsername, username));
     }
 }
