@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Member } from '../_models/member';
@@ -100,6 +100,16 @@ export class MembersService {
   deletePhoto(photoId: number): Observable<Object> {
     console.log('photoId de nuevo: ' + photoId);
     return this.http.delete(this.baseUrl + 'users/photo/' + photoId, {});
+  }
+
+  addLike(username: string): Observable<Object> {
+    return this.http.post(this.baseUrl + 'likes/' + username, {});
+  }
+
+  getLikes(predicate: string): Observable<Member[]> {
+    return this.http.get<Member[]>(
+      this.baseUrl + 'likes?predicate=' + predicate
+    );
   }
 
   private getPaginatedResult<T>(
