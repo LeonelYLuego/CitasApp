@@ -10,6 +10,7 @@ import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { memberDetailedResolver } from './_resolvers/member-detailed.resolver';
 import { preventUnsavedChangesGuard } from './prevent-unsaved-changes.guard';
 
 const routes: Routes = [
@@ -21,11 +22,15 @@ const routes: Routes = [
     children: [
       { path: 'members', component: MemberListComponent },
       {
-        path: 'members/edit',
+        path: 'members/:username',
+        component: MemberDetailComponent,
+        resolve: { member: memberDetailedResolver },
+      },
+      {
+        path: 'member/edit',
         component: MemberEditComponent,
         canDeactivate: [preventUnsavedChangesGuard],
       },
-      { path: 'members/:username', component: MemberDetailComponent },
       { path: 'lists', component: ListsComponent },
       { path: 'messages', component: MessagesComponent },
     ],
