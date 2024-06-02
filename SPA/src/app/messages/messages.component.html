@@ -49,6 +49,7 @@
             ? '/members/' + message.recipientUsername
             : '/members/' + message.senderUsername
         }}"
+        [queryParams]="{ tab: 'Mensajes' }"
       >
         <td>{{ message.content }}</td>
         <td>
